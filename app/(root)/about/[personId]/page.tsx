@@ -2,21 +2,25 @@ import { Container } from '@/components/shared/container';
 import { Footer } from '@/components/shared/footer';
 import { prisma } from '@/prisma/prisma-client';
 import Image from 'next/image';
-import React, { JSX } from 'react';
 import { Metadata } from 'next';
+import { JSX } from 'react';
 
-type PageProps = {
+export async function generateMetadata({
+  params,
+}: {
   params: { personId: string };
-  searchParams: Record<string, string | string[] | undefined>;
-};
-
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+}): Promise<Metadata> {
   return {
     title: `About ${params.personId}`,
   };
 }
 
-export default async function AboutPage({ params }: PageProps): Promise<JSX.Element> {
+export default async function AboutPage({
+  params,
+}: {
+  params: { personId: string };
+  searchParams: Record<string, string | string[] | undefined>;
+}): Promise<JSX.Element> {
   try {
     const personId = params.personId;
 
