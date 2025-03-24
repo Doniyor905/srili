@@ -8,8 +8,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-export default async function ProductPage({ params }: { params: { id: string } }) {
-  const id = params.id;
+export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
 
   const product = await prisma.product.findFirst({
     where: { id: Number(id) },

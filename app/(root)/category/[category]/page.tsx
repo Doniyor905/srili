@@ -4,9 +4,14 @@ import { prisma } from '@/prisma/prisma-client';
 import { Category } from '@prisma/client';
 import { notFound } from 'next/navigation';
 import { categoryLabels, validCategories } from '@/constants/categories';
+import { JSX } from 'react';
 
-export default async function CategoryPage({ params }: { params: { category: string } }) {
-  const { category } = params;
+export default async function CategoryPage({
+  params,
+}: {
+  params: Promise<{ category: string }>;
+}): Promise<JSX.Element> {
+  const { category } = await params;
   const categorySlug = category.toUpperCase();
 
   if (!validCategories.includes(categorySlug)) {
