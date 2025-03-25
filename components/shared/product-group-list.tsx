@@ -12,7 +12,7 @@ import { Skeleton } from '../ui/skeleton';
 export const ProductGroupList: React.FC = () => {
   const [product, setProduct] = React.useState<Product[]>([]);
   const [activeCategory, serActiveCategory] = React.useState<string | null>(null);
-  const [visibleCount, setVisibleCount] = React.useState(8);
+  const [visibleCount, setVisibleCount] = React.useState(6);
   const [isLoading, setIsLoading] = React.useState(true);
   React.useEffect(() => {
     async function fetchProduct() {
@@ -41,7 +41,7 @@ export const ProductGroupList: React.FC = () => {
   };
 
   const handleShowMore = () => {
-    setVisibleCount((prev) => prev + 8);
+    setVisibleCount((prev) => prev + 6);
   };
 
   const visibleProduct = product.slice(0, visibleCount);
@@ -54,7 +54,7 @@ export const ProductGroupList: React.FC = () => {
           activeCategory={activeCategory}
           className="mt-10"
         />
-        <div className="flex flex-wrap gap-[20px] mt-7 justify-center">
+        <div className="flex flex-wrap sm:gap-[20px] gap-[10px] mt-7 justify-center">
           {isLoading
             ? Array(8)
                 .fill(0)

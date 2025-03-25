@@ -21,7 +21,7 @@ export const TableProduct: React.FC<Props> = ({ category, size, koku }) => {
     },
   ];
   return (
-    <Table className="w-[979px] mx-auto mt-[50px]">
+    <Table className="w-full mx-auto mt-[50px]">
       <TableCaption className="caption-top text-left font-bold text-[26px] text-black mb-5">
         Ürün hakkında
       </TableCaption>

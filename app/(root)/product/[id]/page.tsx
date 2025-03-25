@@ -21,15 +21,19 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
   return (
     <>
       <Container className="mt-[50px] mb-[100px]">
-        <div className="flex justify-around">
-          <div className="max-w-[500px]">
+        <div className="flex md:flex-row flex-col justify-around  gap-3">
+          <div className="max-w-[500px] md:mr-auto mx-auto ">
             <Image width={420} height={500} src={product.imageUrl} alt={product.name_tr} />
           </div>
           <div>
-            <h2 className="text-[26px] font-bold mb-2">{product.name_tr}</h2>
-            <p className="w-[500px] mb-3">{product.description_tr}</p>
+            <h2 className="sm:text-[26px] font-bold mb-2  text-[20px]">{product.name_tr}</h2>
+            <p className="lg:w-[500px] w-full sm:text-base text-[14px] mb-3">
+              {product.description_tr}
+            </p>
             <Link href="#!">
-              <Button className="w-[200px] h-[50px] cursor-pointer">İletişime geç</Button>
+              <Button className="sm:w-[200px] w-[180px] sm:h-[50px] h-[40px] cursor-pointer">
+                İletişime geç
+              </Button>
             </Link>
           </div>
         </div>

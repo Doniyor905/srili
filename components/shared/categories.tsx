@@ -16,15 +16,15 @@ const categories = [
 ];
 export const Categories: React.FC<Props> = ({ activeCategory, onSelect, className }) => {
   return (
-    <div className={cn('flex gap-4 justify-center', className)}>
+    <div className={cn('flex gap-4 justify-center sm:flex-nowrap flex-wrap', className)}>
       {categories.map((category) => (
         <div
           onClick={() => onSelect(category.key)}
           key={category.key}
           className={
             activeCategory === category.key
-              ? 'text-white flex items-center justify-center cursor-pointer transition duration-500 w-[143px] h-[38px] bg-primary border-primary border-2 text-sm'
-              : 'flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white transition duration-500 w-[143px] h-[38px] border-primary border-2 text-primary text-sm'
+              ? 'text-white flex items-center justify-center cursor-pointer transition duration-500 sm:w-[143px] w-[105px] sm:h-[38px] h-[28px] bg-primary border-primary border-2 sm:text-sm text-[12px] '
+              : 'flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white transition duration-500 sm:w-[143px] w-[105px] sm:h-[38px] h-[28px] border-primary border-2 text-primary text-sm'
           }>
           {category.label}
         </div>
